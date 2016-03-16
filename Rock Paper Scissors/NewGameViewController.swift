@@ -11,16 +11,19 @@ import UIKit
 class NewGameViewController: UIViewController, UIScrollViewDelegate {
 
     var chooseSinglePlayer : Bool = true
-    
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var pageControl : UIPageControl!
     @IBOutlet weak var playButton : UIButton!
     
     
     @IBAction func playButtonClicked(sender: UIButton) {
-        print("Choose Single Player Game : %@", chooseSinglePlayer)
+        print("Choose Single Player Game : ", chooseSinglePlayer)
         //perform segue/action based on isSinglePlayer bool value (single vs. multi player)
-        
+        if chooseSinglePlayer {
+            //Start Single Player Game
+        } else {
+            //Start Multiplayer Game
+        }
     }
     
     func loadPageViews() {
@@ -31,18 +34,34 @@ class NewGameViewController: UIViewController, UIScrollViewDelegate {
         
         let singlePlayerView: GameChooserView = GameChooserView.instanceFromNib() as! GameChooserView
         singlePlayerView.loadSinglePlayerView()
-        singlePlayerView.frame = CGRectMake(0.0, 0.0, pageWidth, scrollView.frame.size.height)
-        scrollView.addSubview(singlePlayerView)
+        singlePlayerView.frame = CGRectMake(0.0, 0.0, pageWidth, scrollView.bounds.size.height)
         
+        //Add to UIView before adding to scrollview to save autolayout constraints
+        let contentView1 = UIView.init(frame: CGRectMake(0.0, 0.0, pageWidth, scrollView.bounds.size.height))
+        contentView1.addSubview(singlePlayerView)
+        scrollView.addSubview(contentView1)
+
         let multiPlayerView: GameChooserView = GameChooserView.instanceFromNib() as! GameChooserView
         multiPlayerView.loadMultiPlayerView()
-        multiPlayerView.frame = CGRectMake(pageWidth, 0.0, pageWidth, scrollView.frame.size.height)
-        scrollView.addSubview(multiPlayerView)
+        multiPlayerView.frame = CGRectMake(0.0, 0.0, pageWidth, scrollView.frame.size.height)
+        
+        let contentView2 = UIView.init(frame: CGRectMake(pageWidth, 0.0, pageWidth, scrollView.frame.size.height))
+        contentView2.addSubview(multiPlayerView)
+        scrollView.addSubview(contentView2)
+        
+        scrollView.contentSize = CGSize(width: pageWidth * 2, height: 1.0)
     }
     
+    // MARK: - Scroll View Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        
+        if page == 0 {
+            chooseSinglePlayer = true
+        } else {
+            chooseSinglePlayer = false
+        }
         
         // Update the page control
         pageControl.currentPage = page
@@ -53,10 +72,10 @@ class NewGameViewController: UIViewController, UIScrollViewDelegate {
         
         loadPageViews()
         
-        let scrollViewSize = scrollView.frame.size
         let pageScrollViewSize = UIScreen.mainScreen().bounds
-        scrollView.contentSize = CGSize(width: pageScrollViewSize.width * 2.0,
-            height: scrollViewSize.height)
+        scrollView.frame = CGRectMake(0.0, scrollView.frame.origin.y, pageScrollViewSize.width, scrollView.frame.size.height)
+//        scrollView.contentSize = CGSize(width: pageScrollViewSize.width * 2.0,
+//            height: scrollView.frame.size.height)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,14 +84,9 @@ class NewGameViewController: UIViewController, UIScrollViewDelegate {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }
