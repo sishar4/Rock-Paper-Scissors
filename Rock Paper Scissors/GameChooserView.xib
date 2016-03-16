@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GameChooserView" customModule="Rock_Paper_Scissors" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="399"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyS-9j-6aF">
+                    <rect key="frame" x="210" y="52" width="180" height="180"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="CF0-Ny-Lem"/>
+                        <constraint firstAttribute="height" constant="180" id="fXc-G6-Acq"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="rpI-m3-vvz"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="rpI-m3-vvz"/>
+                        </mask>
+                    </variation>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXj-f6-LZB">
+                    <rect key="frame" x="8" y="289" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="n6X-rD-zW7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYV-4H-xoo">
+                    <rect key="frame" x="8" y="318" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="584" id="kFO-13-XJn"/>
+                        <constraint firstAttribute="height" constant="21" id="oPt-Q9-a1v"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="kFO-13-XJn"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GXj-f6-LZB" secondAttribute="trailing" constant="8" id="0gq-Cu-3tY"/>
+                <constraint firstItem="GXj-f6-LZB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5iT-vC-msE"/>
+                <constraint firstItem="tyS-9j-6aF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="7z8-9g-dsa"/>
+                <constraint firstAttribute="bottom" secondItem="UYV-4H-xoo" secondAttribute="bottom" constant="60" id="CrL-zQ-rWG"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="trailing" secondItem="GXj-f6-LZB" secondAttribute="trailing" id="DyO-nh-yia"/>
+                <constraint firstAttribute="bottom" secondItem="UYV-4H-xoo" secondAttribute="bottom" constant="23" id="FJp-Yf-t8x"/>
+                <constraint firstItem="GXj-f6-LZB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Ff4-Tl-2e5"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="FzI-Jh-Yg2"/>
+                <constraint firstItem="tyS-9j-6aF" firstAttribute="centerX" secondItem="GXj-f6-LZB" secondAttribute="centerX" id="GNr-N1-DdQ"/>
+                <constraint firstItem="GXj-f6-LZB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HTY-uK-YMA"/>
+                <constraint firstItem="GXj-f6-LZB" firstAttribute="top" secondItem="tyS-9j-6aF" secondAttribute="bottom" constant="57" id="Jaq-6i-XTP"/>
+                <constraint firstItem="tyS-9j-6aF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lw6-2q-h40"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="MVJ-Ow-9KY"/>
+                <constraint firstAttribute="bottom" secondItem="UYV-4H-xoo" secondAttribute="bottom" constant="24" id="RxX-PW-TWU"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="top" secondItem="GXj-f6-LZB" secondAttribute="bottom" constant="8" symbolic="YES" id="Tvk-vh-EZx"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="leading" secondItem="GXj-f6-LZB" secondAttribute="leading" id="ZTj-Ow-Lg3"/>
+                <constraint firstItem="GXj-f6-LZB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="f8b-4D-hEr"/>
+                <constraint firstItem="tyS-9j-6aF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="52" id="glm-Kd-tcF"/>
+                <constraint firstItem="UYV-4H-xoo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qvZ-a3-KTh"/>
+                <constraint firstAttribute="bottom" secondItem="UYV-4H-xoo" secondAttribute="bottom" constant="24" id="wMY-33-9Fy"/>
+                <constraint firstAttribute="trailing" secondItem="UYV-4H-xoo" secondAttribute="trailing" constant="8" id="zWN-Yd-kcl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7z8-9g-dsa"/>
+                    <exclude reference="GNr-N1-DdQ"/>
+                    <exclude reference="5iT-vC-msE"/>
+                    <exclude reference="HTY-uK-YMA"/>
+                    <exclude reference="f8b-4D-hEr"/>
+                    <exclude reference="DyO-nh-yia"/>
+                    <exclude reference="FJp-Yf-t8x"/>
+                    <exclude reference="MVJ-Ow-9KY"/>
+                    <exclude reference="RxX-PW-TWU"/>
+                    <exclude reference="ZTj-Ow-Lg3"/>
+                    <exclude reference="qvZ-a3-KTh"/>
+                    <exclude reference="wMY-33-9Fy"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="gameDetailLabel" destination="UYV-4H-xoo" id="s7q-4Q-7Ln"/>
+                <outlet property="gameTypeLabel" destination="GXj-f6-LZB" id="Oiw-O9-e7d"/>
+                <outlet property="playerImgButton" destination="tyS-9j-6aF" id="osr-bL-aRH"/>
+            </connections>
+            <point key="canvasLocation" x="465" y="249"/>
+        </view>
+    </objects>
+</document>

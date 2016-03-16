@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3405243D1C99B7E1007ADC08 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405243C1C99B7E1007ADC08 /* NewGameViewController.swift */; };
+		340524401C99BF83007ADC08 /* GameChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3405243F1C99BF83007ADC08 /* GameChooserView.swift */; };
+		340524421C99BF91007ADC08 /* GameChooserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340524411C99BF91007ADC08 /* GameChooserView.xib */; };
 		340C951D1C99AE78006BB5CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C951C1C99AE78006BB5CC /* AppDelegate.swift */; };
-		340C951F1C99AE78006BB5CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C951E1C99AE78006BB5CC /* ViewController.swift */; };
 		340C95221C99AE78006BB5CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C95201C99AE78006BB5CC /* Main.storyboard */; };
 		340C95241C99AE78006BB5CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 340C95231C99AE78006BB5CC /* Assets.xcassets */; };
 		340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */; };
@@ -37,9 +39,11 @@
 /* Begin PBXFileReference section */
 		12BC0CCADD341AA3AEB7158A /* Pods-Rock Paper Scissors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rock Paper Scissors.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rock Paper Scissors/Pods-Rock Paper Scissors.release.xcconfig"; sourceTree = "<group>"; };
 		27449F21A46880200B6D3450 /* libPods-Rock Paper Scissors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rock Paper Scissors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3405243C1C99B7E1007ADC08 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		3405243F1C99BF83007ADC08 /* GameChooserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameChooserView.swift; sourceTree = "<group>"; };
+		340524411C99BF91007ADC08 /* GameChooserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameChooserView.xib; sourceTree = "<group>"; };
 		340C95191C99AE78006BB5CC /* Rock Paper Scissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rock Paper Scissors.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C951C1C99AE78006BB5CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		340C951E1C99AE78006BB5CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		340C95211C99AE78006BB5CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		340C95231C99AE78006BB5CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		340C95261C99AE78006BB5CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3405243B1C99B7A0007ADC08 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3405243C1C99B7E1007ADC08 /* NewGameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3405243E1C99B7F1007ADC08 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				340524411C99BF91007ADC08 /* GameChooserView.xib */,
+				3405243F1C99BF83007ADC08 /* GameChooserView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		340C95101C99AE78006BB5CC = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				340C951C1C99AE78006BB5CC /* AppDelegate.swift */,
-				340C951E1C99AE78006BB5CC /* ViewController.swift */,
+				3405243B1C99B7A0007ADC08 /* Controllers */,
+				3405243E1C99B7F1007ADC08 /* Views */,
 				340C95201C99AE78006BB5CC /* Main.storyboard */,
 				340C95231C99AE78006BB5CC /* Assets.xcassets */,
 				340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */,
@@ -256,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340524421C99BF91007ADC08 /* GameChooserView.xib in Resources */,
 				340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */,
 				340C95241C99AE78006BB5CC /* Assets.xcassets in Resources */,
 				340C95221C99AE78006BB5CC /* Main.storyboard in Resources */,
@@ -331,8 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				340C951F1C99AE78006BB5CC /* ViewController.swift in Sources */,
+				340524401C99BF83007ADC08 /* GameChooserView.swift in Sources */,
 				340C951D1C99AE78006BB5CC /* AppDelegate.swift in Sources */,
+				3405243D1C99B7E1007ADC08 /* NewGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

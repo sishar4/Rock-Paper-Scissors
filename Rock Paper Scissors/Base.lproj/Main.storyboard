@@ -8,7 +8,7 @@
         <!--New Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Rock_Paper_Scissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewGameViewController" customModule="Rock_Paper_Scissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,9 +16,78 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzG-pz-vEt">
+                                <rect key="frame" x="20" y="540" width="560" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uJd-ju-L7x"/>
+                                </constraints>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o2e-KK-VI4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE HOW YOU WANT TO PLAY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1x-xh-pph">
+                                <rect key="frame" x="200" y="72" width="200" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="0o3-JN-Zhf"/>
+                                    <constraint firstAttribute="width" constant="200" id="hQg-81-XSX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2A-R3-fMD">
+                                <rect key="frame" x="0.0" y="200" width="600" height="270"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pm6-24-Gnq"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="p3P-nP-rOI">
+                                <rect key="frame" x="281" y="470" width="39" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="4eb-ZZ-P52"/>
+                                    <constraint firstAttribute="width" constant="39" id="SvX-y9-51z"/>
+                                </constraints>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UzG-pz-vEt" secondAttribute="trailing" constant="20" id="24R-uk-GPc"/>
+                            <constraint firstItem="UzG-pz-vEt" firstAttribute="top" secondItem="p2A-R3-fMD" secondAttribute="bottom" constant="8" id="2BT-hU-m1F"/>
+                            <constraint firstAttribute="trailing" secondItem="p2A-R3-fMD" secondAttribute="trailing" id="2Ku-jP-YY4"/>
+                            <constraint firstItem="p3P-nP-rOI" firstAttribute="top" secondItem="p2A-R3-fMD" secondAttribute="bottom" id="Ah1-SA-bIP"/>
+                            <constraint firstItem="UzG-pz-vEt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C2T-Ic-qV9"/>
+                            <constraint firstItem="p3P-nP-rOI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C3x-ja-Aaq"/>
+                            <constraint firstItem="UzG-pz-vEt" firstAttribute="top" secondItem="p3P-nP-rOI" secondAttribute="bottom" constant="33" id="H6w-sS-XnQ"/>
+                            <constraint firstItem="O1x-xh-pph" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="JED-lv-lJP"/>
+                            <constraint firstItem="p2A-R3-fMD" firstAttribute="top" secondItem="O1x-xh-pph" secondAttribute="bottom" constant="8" id="eb3-aR-vB9"/>
+                            <constraint firstItem="p2A-R3-fMD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fG4-6E-SMo"/>
+                            <constraint firstItem="O1x-xh-pph" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fKX-om-qrS"/>
+                            <constraint firstItem="p2A-R3-fMD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pym-iy-cxg"/>
+                            <constraint firstItem="p3P-nP-rOI" firstAttribute="top" secondItem="p2A-R3-fMD" secondAttribute="bottom" id="qcf-UN-qZW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UzG-pz-vEt" secondAttribute="bottom" constant="20" id="sVv-Nt-ogp"/>
+                            <constraint firstItem="UzG-pz-vEt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wov-Ov-fxj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fG4-6E-SMo"/>
+                                <exclude reference="2BT-hU-m1F"/>
+                                <exclude reference="C2T-Ic-qV9"/>
+                                <exclude reference="qcf-UN-qZW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Game" id="uLk-dI-hOn"/>
+                    <connections>
+                        <outlet property="pageControl" destination="p3P-nP-rOI" id="MeB-bk-P18"/>
+                        <outlet property="playButton" destination="UzG-pz-vEt" id="DRB-FV-1Ad"/>
+                        <outlet property="scrollView" destination="p2A-R3-fMD" id="8fa-Jq-SHc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
