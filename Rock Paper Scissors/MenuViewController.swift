@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol MenuViewControllerDelegate: class {
+    func didSelectMenuItemWithTitle(title : String)
+}
+
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    weak var delegate: MenuViewControllerDelegate?
     var cellItemsArray = []
     @IBOutlet weak var signInButton : UIButton!
     @IBOutlet weak var tableView : UITableView!
@@ -36,11 +41,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let selection = cellItemsArray.objectAtIndex(indexPath.row) as! String
+        delegate?.didSelectMenuItemWithTitle(selection)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let indexPath = NSIndexPath.init(forRow: 0, inSection: 0)
+        tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Top)
     }
     
     override func viewDidLoad() {

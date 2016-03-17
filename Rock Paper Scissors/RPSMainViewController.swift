@@ -8,10 +8,15 @@
 
 import UIKit
 
-class RPSMainViewController: UIViewController {
+enum ViewControllerIdentifier: String {
+    case NewGame = "NewGameViewController"
+    case About = "AboutViewController"
+}
+
+class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
 
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    var menuViewController: UIViewController? {
+    var menuViewController: MenuViewController? {
         willSet{
             if menuViewController != nil {
                 if menuViewController!.view != nil {
@@ -91,11 +96,27 @@ class RPSMainViewController: UIViewController {
         }
     }
     
+    //MARK: Menu View Controller Delegate
+    func didSelectMenuItemWithTitle(title: String) {
+        pageTitle = title
+        
+        //find ViewController with identifier for storyboard
+        let titleNoSpaces = title.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let newVC = storyBoard.instantiateViewControllerWithIdentifier(titleNoSpaces + "ViewController")
+        newVC.view.frame = CGRectMake(0.0, 0.0, currentView.bounds.size.width, currentView.bounds.size.height)
+        selectedVC = newVC
+        updateCurrentView()
+    }
+    
     func updateCurrentView() {
         currentVC!.view.removeFromSuperview()
         currentVC = selectedVC
         currentView.addSubview(currentVC!.view)
         self.title = pageTitle
+        
+        if isMenuShowing {
+            hideMenu()
+        }
     }
     
     func loadInitialView() {
@@ -113,8 +134,10 @@ class RPSMainViewController: UIViewController {
         recognizer.edges = UIRectEdge.Left
         loadInitialView()
         
-        let menuVC: MenuViewController = storyBoard.instantiateViewControllerWithIdentifier("MenuViewController")as! MenuViewController
-        menuViewController = menuVC
+//        let menuVC: MenuViewController = storyBoard.instantiateViewControllerWithIdentifier("MenuViewController")as! MenuViewController
+//        menuViewController = menuVC
+        menuViewController = storyBoard.instantiateViewControllerWithIdentifier("MenuViewController") as? MenuViewController
+        menuViewController?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

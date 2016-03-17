@@ -27,20 +27,6 @@ class GameChooserView: UIView {
         gameTypeLabel.text = "MultiPlayer"
         gameDetailLabel.text = "Find people to play with!"
     }
-    
-    override init (frame : CGRect) {
-        super.init(frame : frame)
-        
-    }
-    
-    convenience init () {
-        self.init(frame:CGRect.zero)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        print("Coder init")
-    }
 
     override func awakeFromNib() {
         playerImgButton.layer.cornerRadius = 90.0

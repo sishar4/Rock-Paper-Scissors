@@ -20,6 +20,7 @@
 		340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */; };
 		340C95321C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C95311C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift */; };
 		340C953D1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */; };
+		34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC66461C9AF85C0010EF75 /* AboutViewController.swift */; };
 		A090442F0A57F4FF2BB8662E /* libPods-Rock Paper Scissors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27449F21A46880200B6D3450 /* libPods-Rock Paper Scissors.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		340C95381C99AE78006BB5CC /* Rock Paper ScissorsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock Paper ScissorsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock_Paper_ScissorsUITests.swift; sourceTree = "<group>"; };
 		340C953E1C99AE78006BB5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34BC66461C9AF85C0010EF75 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		82D0C36D87D37F75DDEC6371 /* Pods-Rock Paper Scissors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rock Paper Scissors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rock Paper Scissors/Pods-Rock Paper Scissors.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 				340524491C99F203007ADC08 /* MenuViewController.swift */,
 				340524471C99ED4F007ADC08 /* RPSMainViewController.swift */,
 				3405243C1C99B7E1007ADC08 /* NewGameViewController.swift */,
+				34BC66461C9AF85C0010EF75 /* AboutViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				340524401C99BF83007ADC08 /* GameChooserView.swift in Sources */,
 				3405244A1C99F203007ADC08 /* MenuViewController.swift in Sources */,
 				3405244C1C99F45C007ADC08 /* MenuTableViewCell.swift in Sources */,
+				34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */,
 				340C951D1C99AE78006BB5CC /* AppDelegate.swift in Sources */,
 				340524481C99ED4F007ADC08 /* RPSMainViewController.swift in Sources */,
 				3405243D1C99B7E1007ADC08 /* NewGameViewController.swift in Sources */,

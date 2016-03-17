@@ -23,7 +23,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uJd-ju-L7x"/>
                                 </constraints>
-                                <state key="normal" title="Play"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="playButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o2e-KK-VI4"/>
                                 </connections>
@@ -92,6 +94,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1981" y="684"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Noh-i5-5fk">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" id="t5e-BN-Jgw" customClass="AboutViewController" customModule="Rock_Paper_Scissors" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="djT-Sd-HG7"/>
+                        <viewControllerLayoutGuide type="bottom" id="AFZ-1A-Gfr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="obZ-xh-H2c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atM-6U-Hib">
+                                <rect key="frame" x="20" y="289" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1XY-i1-2bo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="atM-6U-Hib" firstAttribute="leading" secondItem="obZ-xh-H2c" secondAttribute="leading" constant="20" id="2R0-xO-ReJ"/>
+                            <constraint firstItem="atM-6U-Hib" firstAttribute="centerY" secondItem="obZ-xh-H2c" secondAttribute="centerY" id="HLM-66-uJD"/>
+                            <constraint firstItem="atM-6U-Hib" firstAttribute="centerX" secondItem="obZ-xh-H2c" secondAttribute="centerX" id="Ze5-zq-3gP"/>
+                            <constraint firstAttribute="trailing" secondItem="atM-6U-Hib" secondAttribute="trailing" constant="20" id="m3b-0S-cnR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKb-pq-MqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981" y="1394"/>
         </scene>
         <!--Page Title-->
         <scene sceneID="FQf-N0-kXQ">
