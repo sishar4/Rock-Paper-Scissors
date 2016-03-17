@@ -10,6 +10,7 @@ import UIKit
 
 protocol MenuViewControllerDelegate: class {
     func didSelectMenuItemWithTitle(title : String)
+    func didSwipeLeft()
 }
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -18,9 +19,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var cellItemsArray = []
     @IBOutlet weak var signInButton : UIButton!
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var swipeLeftGesture : UISwipeGestureRecognizer!
     
     @IBAction func signInClicked(sender: UIButton) {
         
+    }
+    
+    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+        delegate?.didSwipeLeft()
     }
     
     // MARK: - Table View Delegate
@@ -41,6 +47,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //Pass title of selected cell to RPSMainViewController to load the correct view
         let selection = cellItemsArray.objectAtIndex(indexPath.row) as! String
         delegate?.didSelectMenuItemWithTitle(selection)
     }

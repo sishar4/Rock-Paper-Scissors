@@ -42,7 +42,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     
     @IBOutlet weak var currentView : UIView!
     @IBOutlet weak var menuButton : UIBarButtonItem!
-    @IBOutlet weak var recognizer : UIScreenEdgePanGestureRecognizer!
+    @IBOutlet weak var edgePanRecognizer : UIScreenEdgePanGestureRecognizer!
     
     @IBAction func menuButtonClicked(sender: UIBarButtonItem) {
         if isMenuShowing {
@@ -50,10 +50,6 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         } else {
             showMenu()
         }
-    }
-    
-    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
-        hideMenu()
     }
     
     @IBAction func handlePan(recognizer: UIScreenEdgePanGestureRecognizer) {
@@ -74,12 +70,16 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
             coverView?.alpha = 0.0
         }
         view.addSubview(coverView!)
+        
         UIView.animateWithDuration(0.3, animations: {
             self.menuViewController!.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 100.0, height: self.view.frame.height)
             self.coverView!.frame = CGRectMake(self.view.frame.width - 100.0, 0.0, 100.0, self.view.frame.height)
             self.coverView!.alpha = 0.5
             }, completion: { (Bool) -> Void in
                 self.isMenuShowing = true
+                //Dismiss menu on tap on screen outside menu
+                let tapRecognizer = UITapGestureRecognizer.init(target: self, action: "hideMenu")
+                self.coverView!.addGestureRecognizer(tapRecognizer)
         })
     }
     
@@ -98,6 +98,11 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     
     //MARK: Menu View Controller Delegate
     func didSelectMenuItemWithTitle(title: String) {
+        if title == pageTitle {
+            hideMenu()
+            return
+        }
+        
         pageTitle = title
         
         //find ViewController with identifier for storyboard
@@ -106,6 +111,9 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         newVC.view.frame = CGRectMake(0.0, 0.0, currentView.bounds.size.width, currentView.bounds.size.height)
         selectedVC = newVC
         updateCurrentView()
+    }
+    func didSwipeLeft() {
+        hideMenu()
     }
     
     func updateCurrentView() {
@@ -131,11 +139,9 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recognizer.edges = UIRectEdge.Left
+        edgePanRecognizer.edges = UIRectEdge.Left
         loadInitialView()
-        
-//        let menuVC: MenuViewController = storyBoard.instantiateViewControllerWithIdentifier("MenuViewController")as! MenuViewController
-//        menuViewController = menuVC
+
         menuViewController = storyBoard.instantiateViewControllerWithIdentifier("MenuViewController") as? MenuViewController
         menuViewController?.delegate = self
     }

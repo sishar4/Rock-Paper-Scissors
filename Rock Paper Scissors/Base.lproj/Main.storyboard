@@ -147,7 +147,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="xsm-VD-k7p" appends="YES" id="WbW-lW-VXK"/>
                                     <outletCollection property="gestureRecognizers" destination="sp8-dw-LWz" appends="YES" id="r4U-ci-1UG"/>
                                 </connections>
                             </view>
@@ -169,16 +168,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currentView" destination="aHN-Yn-QCU" id="5um-JG-k1j"/>
+                        <outlet property="edgePanRecognizer" destination="sp8-dw-LWz" id="LoI-eM-QLw"/>
                         <outlet property="menuButton" destination="s9T-XN-c4Y" id="PMb-eG-gih"/>
-                        <outlet property="recognizer" destination="sp8-dw-LWz" id="yNj-pP-jXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y70-8b-d9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer enabled="NO" cancelsTouchesInView="NO" delaysTouchesEnded="NO" direction="left" id="xsm-VD-k7p">
-                    <connections>
-                        <action selector="swipeLeft:" destination="6x8-Bt-9ax" id="DVS-UZ-bNZ"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="sp8-dw-LWz">
                     <connections>
                         <action selector="handlePan:" destination="6x8-Bt-9ax" id="BId-Te-Dgr"/>
@@ -233,6 +227,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Um5-oN-mHi" firstAttribute="top" secondItem="ZHj-Re-ubU" secondAttribute="bottom" constant="8" id="5iD-Fe-xeX"/>
                             <constraint firstItem="dEs-CS-1Me" firstAttribute="top" secondItem="z72-0N-wau" secondAttribute="bottom" constant="84" id="6p6-8O-PDV"/>
@@ -248,13 +243,22 @@
                                 <exclude reference="vhT-aW-HDK"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wlE-dG-Lqm" appends="YES" id="Xh3-ju-ESU"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="signInButton" destination="Um5-oN-mHi" id="qjP-Mw-w9R"/>
+                        <outlet property="swipeLeftGesture" destination="wlE-dG-Lqm" id="Hsb-eg-2u5"/>
                         <outlet property="tableView" destination="z72-0N-wau" id="Yfg-iL-t6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yoe-aV-HGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="wlE-dG-Lqm">
+                    <connections>
+                        <action selector="swipeLeft:" destination="pPZ-gP-7Sp" id="xsu-gs-LYz"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="702" y="419"/>
         </scene>
