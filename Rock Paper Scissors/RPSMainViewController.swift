@@ -11,6 +11,8 @@ import UIKit
 class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
 
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    let menuTop : CGFloat = UIScreen.mainScreen().bounds.origin.y
+    
     var menuViewController: MenuViewController? {
         willSet{
             if menuViewController != nil {
@@ -22,10 +24,11 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         }
         
         didSet{
-            self.menuViewController!.view.frame = CGRect(x: 0.0-self.view.frame.width+100.0, y: 0.0, width: self.view.frame.width - 100.0, height: self.view.frame.height)
-            self.view!.addSubview(menuViewController!.view)
-            self.view!.bringSubviewToFront(menuViewController!.view)
-            self.addChildViewController(menuViewController!)
+            self.menuViewController!.view.frame = CGRect(x: 0.0-self.view.frame.width+100.0, y: menuTop, width: self.view.frame.width - 100.0, height: self.view.frame.height)
+            let win:UIWindow = UIApplication.sharedApplication().delegate!.window!!
+            win.addSubview(menuViewController!.view)
+            win.bringSubviewToFront(menuViewController!.view)
+//            self.addChildViewController(menuViewController!)
         }
     }
     
@@ -33,7 +36,9 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     var selectedVC : UIViewController?
     var pageTitle : String = "New Game"
     var isMenuShowing : Bool = false
-    var coverView : UIView?
+    var overlayView : UIView?
+    var translationIncrement : Float = 0.00
+    var counter : Int = 0
     
     @IBOutlet weak var currentView : UIView!
     @IBOutlet weak var menuButton : UIBarButtonItem!
@@ -48,47 +53,96 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     }
     
     @IBAction func handlePan(recognizer: UIScreenEdgePanGestureRecognizer) {
-//        let translation = recognizer.translationInView(self.view)
-//        if let view = recognizer.view {
-//            view.center = CGPoint(x:view.center.x + translation.x,
-//                y:view.center.y + translation.y)
-//        }
-//        recognizer.setTranslation(CGPointZero, inView: self.view)
-        showMenu()
+        let translation = recognizer.translationInView(self.view)
+        
+        
+        switch recognizer.state {
+            case .Began:
+                print("began")
+                addOverlay()
+                
+            case .Changed:
+                if let view = menuViewController!.view {
+                    if view.center.x < ((self.view.frame.width - 100.0)/2) - 1.0 {
+                        view.center = CGPoint(x:view.center.x + translation.x,
+                            y:UIScreen.mainScreen().bounds.height/2)
+                        overlayView!.center = CGPoint(x: overlayView!.center.x + translation.x, y: UIScreen.mainScreen().bounds.height/2)
+                        
+                        let tran = Float(translation.x)
+                        translationIncrement += tran
+                        print(translationIncrement)
+                        
+                        let viewSection = Float(view.frame.size.width)
+                        if translationIncrement > viewSection/12.0 {
+                            overlayView!.alpha += 0.0555
+                            translationIncrement = 0.0
+                            counter++
+                        }
+                    }
+                }
+                
+                recognizer.setTranslation(CGPointZero, inView: self.view)
+            
+            case .Ended:
+                print("ended")
+                if let view = menuViewController!.view {
+                    translationIncrement = 0.0
+                    print(counter)
+                    counter = 0
+                    if view.center.x == view.frame.size.width/2 {
+                        //do nothing
+                    } else if view.center.x > self.view.frame.origin.x {
+                        showMenu()
+                    } else if (self.view.frame.origin.x - view.center.x)  < view.frame.size.width/2 {
+                        isMenuShowing = true
+                        hideMenu()
+                    }
+                }
+            case .Possible:
+                print("possible")
+            case .Cancelled:
+                print("cancelled")
+            case .Failed:
+                print("failed")
+        }
     }
     
     func showMenu() {
-        
-        if coverView == nil {
-            coverView = UIView.init(frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height))
-            coverView?.backgroundColor = UIColor.blackColor()
-            coverView?.alpha = 0.0
-        }
-        view.addSubview(coverView!)
+        addOverlay()
         
         UIView.animateWithDuration(0.3, animations: {
-            self.menuViewController!.view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 100.0, height: self.view.frame.height)
-            self.coverView!.frame = CGRectMake(self.view.frame.width - 100.0, 0.0, 100.0, self.view.frame.height)
-            self.coverView!.alpha = 0.5
+            self.menuViewController!.view.frame = CGRect(x: 0.0, y: self.menuTop, width: self.view.frame.width - 100.0, height: self.view.frame.height)
+            self.overlayView!.frame = CGRectMake(self.view.frame.width - 100.0, 0.0, 100.0, self.view.frame.height)
+            self.overlayView!.alpha = 0.5
             }, completion: { (Bool) -> Void in
                 self.isMenuShowing = true
                 //Dismiss menu on tap on screen outside menu
                 let tapRecognizer = UITapGestureRecognizer.init(target: self, action: "hideMenu")
-                self.coverView!.addGestureRecognizer(tapRecognizer)
+                self.overlayView!.addGestureRecognizer(tapRecognizer)
         })
     }
     
     func hideMenu() {
         if isMenuShowing {
             UIView.animateWithDuration(0.3, animations: {
-                self.menuViewController!.view.frame = CGRect(x: 0.0-self.view.frame.width+100.0, y: 0.0, width: self.view.frame.width - 100.0, height: self.view.frame.height)
-                self.coverView!.frame = self.view.frame
-                self.coverView!.alpha = 0.0
+                self.menuViewController!.view.frame = CGRect(x: 0.0-self.view.frame.width+100.0, y: self.menuTop, width: self.view.frame.width - 100.0, height: self.view.frame.height)
+                self.overlayView!.frame = self.view.frame
+                self.overlayView!.alpha = 0.0
                 }, completion: { (Bool) -> Void in
-                    self.coverView!.removeFromSuperview()
+                    self.overlayView!.removeFromSuperview()
                     self.isMenuShowing = false
             })
         }
+    }
+    
+    func addOverlay() {
+        if overlayView == nil {
+            overlayView = UIView.init(frame: CGRectMake(0.0, menuTop, self.view.frame.width, self.view.frame.height))
+            overlayView?.backgroundColor = UIColor.blackColor()
+            overlayView?.alpha = 0.0
+        }
+        overlayView?.removeFromSuperview()
+        view.addSubview(overlayView!)
     }
     
     //MARK: Menu View Controller Delegate
