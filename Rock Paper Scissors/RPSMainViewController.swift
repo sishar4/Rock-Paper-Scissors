@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum ViewControllerIdentifier: String {
-    case NewGame = "NewGameViewController"
-    case About = "AboutViewController"
-}
-
 class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
 
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -111,7 +106,13 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         newVC.view.frame = CGRectMake(0.0, 0.0, currentView.bounds.size.width, currentView.bounds.size.height)
         selectedVC = newVC
         updateCurrentView()
+        
+        if title == "New Game" {
+            //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work
+            NSNotificationCenter.defaultCenter().postNotificationName("NewGameScreenVisibleNotification", object: edgePanRecognizer)
+        }
     }
+    
     func didSwipeLeft() {
         hideMenu()
     }
@@ -134,6 +135,8 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         currentVC = selectedVC
         currentView.addSubview(currentVC!.view)
         self.title = pageTitle
+        //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work
+        NSNotificationCenter.defaultCenter().postNotificationName("NewGameScreenVisibleNotification", object: edgePanRecognizer)
     }
     
     override func viewDidLoad() {

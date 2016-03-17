@@ -34,13 +34,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Y2v-GX-sMG" firstAttribute="top" secondItem="C6T-2i-AJZ" secondAttribute="top" constant="6" id="6vA-Sf-7tt"/>
-                    <constraint firstAttribute="bottom" secondItem="WI9-BG-gJk" secondAttribute="bottom" constant="19" id="8Nw-5j-3Re"/>
                     <constraint firstAttribute="bottom" secondItem="Y2v-GX-sMG" secondAttribute="bottom" constant="6" id="Lx3-fh-pin"/>
                     <constraint firstItem="WI9-BG-gJk" firstAttribute="leading" secondItem="Y2v-GX-sMG" secondAttribute="trailing" constant="30" id="QiP-pW-ZuO"/>
                     <constraint firstItem="Y2v-GX-sMG" firstAttribute="leading" secondItem="C6T-2i-AJZ" secondAttribute="leading" constant="8" id="UhG-dH-97l"/>
-                    <constraint firstItem="WI9-BG-gJk" firstAttribute="top" secondItem="C6T-2i-AJZ" secondAttribute="top" constant="19" id="W86-yf-LDx"/>
                     <constraint firstAttribute="trailing" secondItem="WI9-BG-gJk" secondAttribute="trailing" constant="8" id="brW-6N-YQg"/>
+                    <constraint firstItem="Y2v-GX-sMG" firstAttribute="centerY" secondItem="C6T-2i-AJZ" secondAttribute="centerY" id="kaT-Bc-u2C"/>
+                    <constraint firstItem="WI9-BG-gJk" firstAttribute="centerY" secondItem="C6T-2i-AJZ" secondAttribute="centerY" id="qA0-NC-IUq"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="6vA-Sf-7tt"/>
+                        <exclude reference="Lx3-fh-pin"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnImageView" destination="Y2v-GX-sMG" id="iCT-42-pFj"/>

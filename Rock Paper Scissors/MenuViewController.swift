@@ -22,7 +22,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var swipeLeftGesture : UISwipeGestureRecognizer!
     
     @IBAction func signInClicked(sender: UIButton) {
-        
+        //Handle sign in functionality
     }
     
     @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
