@@ -12,10 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var welcomeView : WelcomeViewController?
+    var rootNav : UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        welcomeView = storyBoard.instantiateViewControllerWithIdentifier("WelcomeViewController") as? WelcomeViewController
+        rootNav = storyBoard.instantiateViewControllerWithIdentifier("MainNavController") as? UINavigationController
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = welcomeView
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.window?.rootViewController = self.rootNav
+        }
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

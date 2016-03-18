@@ -21,6 +21,10 @@ class NewGameViewController: UIViewController, UIScrollViewDelegate {
         //perform segue/action based on isSinglePlayer bool value (single vs. multi player)
         if chooseSinglePlayer {
             //Start Single Player Game
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let singlePlayerGame = storyBoard.instantiateViewControllerWithIdentifier("GameNavControllerSingle")
+            let appDelegate: UIApplicationDelegate = UIApplication.sharedApplication().delegate!
+            appDelegate.window!!.rootViewController = singlePlayerGame
         } else {
             //Start Multiplayer Game
         }

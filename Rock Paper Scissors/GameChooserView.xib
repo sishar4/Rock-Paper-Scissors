@@ -77,11 +77,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="7z8-9g-dsa"/>
+                    <exclude reference="GNr-N1-DdQ"/>
                     <exclude reference="5iT-vC-msE"/>
                     <exclude reference="HTY-uK-YMA"/>
                     <exclude reference="f8b-4D-hEr"/>
-                    <exclude reference="7z8-9g-dsa"/>
-                    <exclude reference="GNr-N1-DdQ"/>
                     <exclude reference="DyO-nh-yia"/>
                     <exclude reference="FJp-Yf-t8x"/>
                     <exclude reference="MVJ-Ow-9KY"/>
