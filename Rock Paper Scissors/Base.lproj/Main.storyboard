@@ -117,7 +117,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="atM-6U-Hib" firstAttribute="leading" secondItem="obZ-xh-H2c" secondAttribute="leading" constant="20" id="2R0-xO-ReJ"/>
                             <constraint firstItem="atM-6U-Hib" firstAttribute="centerY" secondItem="obZ-xh-H2c" secondAttribute="centerY" id="HLM-66-uJD"/>
@@ -175,7 +175,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y70-8b-d9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="sp8-dw-LWz">
                     <connections>
-                        <action selector="handlePan:" destination="6x8-Bt-9ax" id="BId-Te-Dgr"/>
+                        <action selector="handleOpenPan:" destination="6x8-Bt-9ax" id="YKL-yN-P6e"/>
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
@@ -243,22 +243,13 @@
                                 <exclude reference="vhT-aW-HDK"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="wlE-dG-Lqm" appends="YES" id="Xh3-ju-ESU"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="signInButton" destination="Um5-oN-mHi" id="qjP-Mw-w9R"/>
-                        <outlet property="swipeLeftGesture" destination="wlE-dG-Lqm" id="Hsb-eg-2u5"/>
                         <outlet property="tableView" destination="z72-0N-wau" id="Yfg-iL-t6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yoe-aV-HGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="wlE-dG-Lqm">
-                    <connections>
-                        <action selector="swipeLeft:" destination="pPZ-gP-7Sp" id="xsu-gs-LYz"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="702" y="419"/>
         </scene>

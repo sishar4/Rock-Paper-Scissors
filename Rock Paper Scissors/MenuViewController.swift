@@ -10,7 +10,6 @@ import UIKit
 
 protocol MenuViewControllerDelegate: class {
     func didSelectMenuItemWithTitle(title : String)
-    func didSwipeLeft()
 }
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -19,14 +18,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var cellItemsArray = []
     @IBOutlet weak var signInButton : UIButton!
     @IBOutlet weak var tableView : UITableView!
-    @IBOutlet weak var swipeLeftGesture : UISwipeGestureRecognizer!
     
     @IBAction func signInClicked(sender: UIButton) {
         //Handle sign in functionality
-    }
-    
-    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
-        delegate?.didSwipeLeft()
     }
     
     // MARK: - Table View Delegate
@@ -74,16 +68,4 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

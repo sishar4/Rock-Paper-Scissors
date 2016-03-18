@@ -38,7 +38,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
     var isMenuShowing : Bool = false
     var overlayView : UIView?
     var translationIncrement : Float = 0.00
-    var counter : Int = 0
+    var removeMenuPanRecognizer : UIPanGestureRecognizer?
     
     @IBOutlet weak var currentView : UIView!
     @IBOutlet weak var menuButton : UIBarButtonItem!
@@ -52,9 +52,14 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         }
     }
     
-    @IBAction func handlePan(recognizer: UIScreenEdgePanGestureRecognizer) {
-        let translation = recognizer.translationInView(self.view)
+    @IBAction func handleOpenPan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        let velocity = recognizer.velocityInView(self.view)
+        if (velocity.x > 1500.0) {
+            showMenu()
+            return
+        }
         
+        let translation = recognizer.translationInView(self.view)
         
         switch recognizer.state {
             case .Began:
@@ -63,7 +68,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
                 
             case .Changed:
                 if let view = menuViewController!.view {
-                    if view.center.x < ((self.view.frame.width - 100.0)/2) - 1.0 {
+                    if view.center.x < ((self.view.frame.width - 100.0)/2) - 0.1 {
                         view.center = CGPoint(x:view.center.x + translation.x,
                             y:UIScreen.mainScreen().bounds.height/2)
                         overlayView!.center = CGPoint(x: overlayView!.center.x + translation.x, y: UIScreen.mainScreen().bounds.height/2)
@@ -76,7 +81,6 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
                         if translationIncrement > viewSection/12.0 {
                             overlayView!.alpha += 0.0555
                             translationIncrement = 0.0
-                            counter++
                         }
                     }
                 }
@@ -87,9 +91,11 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
                 print("ended")
                 if let view = menuViewController!.view {
                     translationIncrement = 0.0
-                    print(counter)
-                    counter = 0
-                    if view.center.x == view.frame.size.width/2 {
+                    
+                    if view.center.x <= -(view.frame.size.width/2) {
+                        overlayView!.alpha = 0.0
+                        overlayView!.removeFromSuperview()
+                    } else if view.center.x == view.frame.size.width/2 {
                         //do nothing
                     } else if view.center.x > self.view.frame.origin.x {
                         showMenu()
@@ -107,6 +113,68 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         }
     }
     
+    func handleClosePan(recognizer: UIPanGestureRecognizer) {
+        let velocity = recognizer.velocityInView(self.view)
+        if (velocity.x < -1500.0) {
+            hideMenu()
+            return
+        }
+        print(UIScreen.mainScreen().bounds.width/2 - 50.0)
+        let translation = recognizer.translationInView(self.view)
+        
+        switch recognizer.state {
+        case .Began:
+            print("began")
+            overlayView!.frame.size.width = self.view.frame.width
+            
+        case .Changed:
+            if let view = menuViewController!.view {
+                if view.center.x > ((self.view.frame.width - 100.0)/2) + 0.1 {
+                    overlayView!.alpha = 0.5
+                } else if view.center.x > 0.0 - view.frame.width/2 {
+                    view.center = CGPoint(x:view.center.x + translation.x,
+                        y:UIScreen.mainScreen().bounds.height/2)
+                    overlayView!.center = CGPoint(x: overlayView!.center.x + translation.x, y: UIScreen.mainScreen().bounds.height/2)
+                    
+                    let tran = Float(translation.x)
+                    translationIncrement += tran
+                    print(translationIncrement)
+                    
+                    let viewSection = Float(view.frame.size.width)
+                    print(viewSection)
+                    if -translationIncrement > viewSection/12.0 {
+                        overlayView!.alpha -= 0.0555
+                        translationIncrement = 0.0
+                    }
+                } else {
+                    overlayView!.alpha = 0.0
+                    overlayView!.removeFromSuperview()
+                }
+            }
+            
+            recognizer.setTranslation(CGPointZero, inView: self.view)
+            
+        case .Ended:
+            print("ended")
+            if let view = menuViewController!.view {
+                translationIncrement = 0.0
+                
+                if view.center.x > self.view.frame.origin.x {
+                    isMenuShowing = false
+                    showMenu()
+                } else if (self.view.frame.origin.x - view.center.x) < view.frame.size.width/2 {
+                    hideMenu()
+                }
+            }
+        case .Possible:
+            print("possible")
+        case .Cancelled:
+            print("cancelled")
+        case .Failed:
+            print("failed")
+        }
+    }
+    
     func showMenu() {
         addOverlay()
         
@@ -116,9 +184,15 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
             self.overlayView!.alpha = 0.5
             }, completion: { (Bool) -> Void in
                 self.isMenuShowing = true
-                //Dismiss menu on tap on screen outside menu
+                
+                //Add UITapGestureRecognizer to overlay view to dismiss menu on tap
                 let tapRecognizer = UITapGestureRecognizer.init(target: self, action: "hideMenu")
                 self.overlayView!.addGestureRecognizer(tapRecognizer)
+                
+                //Add UIPanGestureRecognizer to menu to handle draggin menu off screen
+                self.removeMenuPanRecognizer = UIPanGestureRecognizer(target: self,
+                    action: "handleClosePan:")
+                self.menuViewController!.view.addGestureRecognizer(self.removeMenuPanRecognizer!)
         })
     }
     
@@ -162,13 +236,9 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         updateCurrentView()
         
         if title == "New Game" {
-            //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work
+            //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work on left edge
             NSNotificationCenter.defaultCenter().postNotificationName("NewGameScreenVisibleNotification", object: edgePanRecognizer)
         }
-    }
-    
-    func didSwipeLeft() {
-        hideMenu()
     }
     
     func updateCurrentView() {
@@ -189,6 +259,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         currentVC = selectedVC
         currentView.addSubview(currentVC!.view)
         self.title = pageTitle
+        
         //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work
         NSNotificationCenter.defaultCenter().postNotificationName("NewGameScreenVisibleNotification", object: edgePanRecognizer)
     }
