@@ -117,15 +117,31 @@
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akR-pz-CZU">
+                                <rect key="frame" x="277" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3a4-LL-W2P"/>
+                                    <constraint firstAttribute="width" constant="46" id="EQq-4u-lzT"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="openLink:" destination="t5e-BN-Jgw" eventType="touchUpInside" id="vLx-gV-lN0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="atM-6U-Hib" firstAttribute="leading" secondItem="obZ-xh-H2c" secondAttribute="leading" constant="20" id="2R0-xO-ReJ"/>
                             <constraint firstItem="atM-6U-Hib" firstAttribute="centerY" secondItem="obZ-xh-H2c" secondAttribute="centerY" id="HLM-66-uJD"/>
                             <constraint firstItem="atM-6U-Hib" firstAttribute="centerX" secondItem="obZ-xh-H2c" secondAttribute="centerX" id="Ze5-zq-3gP"/>
+                            <constraint firstItem="AFZ-1A-Gfr" firstAttribute="top" secondItem="akR-pz-CZU" secondAttribute="bottom" constant="8" id="aNc-dc-DBx"/>
+                            <constraint firstItem="akR-pz-CZU" firstAttribute="centerX" secondItem="obZ-xh-H2c" secondAttribute="centerX" id="cw5-aI-pXE"/>
                             <constraint firstAttribute="trailing" secondItem="atM-6U-Hib" secondAttribute="trailing" constant="20" id="m3b-0S-cnR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="videoLinkButton" destination="akR-pz-CZU" id="bZ4-pE-Qhq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKb-pq-MqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
