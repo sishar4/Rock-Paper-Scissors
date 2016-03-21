@@ -24,6 +24,26 @@
 		340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */; };
 		340C95321C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C95311C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift */; };
 		340C953D1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */; };
+		345B4FF51CA04D3100B3680F /* CharacterChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */; };
+		345B4FF71CA04DA300B3680F /* CharacterChooserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */; };
+		345B50011CA0534F00B3680F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B50001CA0534F00B3680F /* QuartzCore.framework */; };
+		345B50121CA058DD00B3680F /* paper_deselect.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50031CA058DD00B3680F /* paper_deselect.gif */; };
+		345B50131CA058DD00B3680F /* paper_loss.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50041CA058DD00B3680F /* paper_loss.gif */; };
+		345B50141CA058DD00B3680F /* paper_select.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50051CA058DD00B3680F /* paper_select.gif */; };
+		345B50151CA058DD00B3680F /* paper_tie.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50061CA058DD00B3680F /* paper_tie.gif */; };
+		345B50161CA058DD00B3680F /* paper_win.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50071CA058DD00B3680F /* paper_win.gif */; };
+		345B50171CA058DD00B3680F /* rock_deselect.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50081CA058DD00B3680F /* rock_deselect.gif */; };
+		345B50181CA058DD00B3680F /* rock_loss.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50091CA058DD00B3680F /* rock_loss.gif */; };
+		345B50191CA058DD00B3680F /* rock_select.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500A1CA058DD00B3680F /* rock_select.gif */; };
+		345B501A1CA058DD00B3680F /* rock_tie.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500B1CA058DD00B3680F /* rock_tie.gif */; };
+		345B501B1CA058DD00B3680F /* rock_win.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500C1CA058DD00B3680F /* rock_win.gif */; };
+		345B501C1CA058DD00B3680F /* scissors_deselect.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500D1CA058DD00B3680F /* scissors_deselect.gif */; };
+		345B501D1CA058DD00B3680F /* scissors_loss.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500E1CA058DD00B3680F /* scissors_loss.gif */; };
+		345B501E1CA058DD00B3680F /* scissors_select.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B500F1CA058DD00B3680F /* scissors_select.gif */; };
+		345B501F1CA058DD00B3680F /* scissors_tie.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50101CA058DD00B3680F /* scissors_tie.gif */; };
+		345B50201CA058DD00B3680F /* scissors_win.gif in Resources */ = {isa = PBXBuildFile; fileRef = 345B50111CA058DD00B3680F /* scissors_win.gif */; };
+		345B50251CA08A5B00B3680F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B50221CA08A5B00B3680F /* FLAnimatedImage.m */; };
+		345B50261CA08A5B00B3680F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B50241CA08A5B00B3680F /* FLAnimatedImageView.m */; };
 		34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC66461C9AF85C0010EF75 /* AboutViewController.swift */; };
 		A090442F0A57F4FF2BB8662E /* libPods-Rock Paper Scissors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27449F21A46880200B6D3450 /* libPods-Rock Paper Scissors.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +91,29 @@
 		340C95381C99AE78006BB5CC /* Rock Paper ScissorsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock Paper ScissorsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock_Paper_ScissorsUITests.swift; sourceTree = "<group>"; };
 		340C953E1C99AE78006BB5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterChooserView.swift; sourceTree = "<group>"; };
+		345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterChooserView.xib; sourceTree = "<group>"; };
+		345B4FF91CA0521F00B3680F /* Rock Paper Scissors-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rock Paper Scissors-Bridging-Header.h"; sourceTree = "<group>"; };
+		345B50001CA0534F00B3680F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		345B50031CA058DD00B3680F /* paper_deselect.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paper_deselect.gif; sourceTree = "<group>"; };
+		345B50041CA058DD00B3680F /* paper_loss.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paper_loss.gif; sourceTree = "<group>"; };
+		345B50051CA058DD00B3680F /* paper_select.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paper_select.gif; sourceTree = "<group>"; };
+		345B50061CA058DD00B3680F /* paper_tie.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paper_tie.gif; sourceTree = "<group>"; };
+		345B50071CA058DD00B3680F /* paper_win.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paper_win.gif; sourceTree = "<group>"; };
+		345B50081CA058DD00B3680F /* rock_deselect.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock_deselect.gif; sourceTree = "<group>"; };
+		345B50091CA058DD00B3680F /* rock_loss.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock_loss.gif; sourceTree = "<group>"; };
+		345B500A1CA058DD00B3680F /* rock_select.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock_select.gif; sourceTree = "<group>"; };
+		345B500B1CA058DD00B3680F /* rock_tie.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock_tie.gif; sourceTree = "<group>"; };
+		345B500C1CA058DD00B3680F /* rock_win.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock_win.gif; sourceTree = "<group>"; };
+		345B500D1CA058DD00B3680F /* scissors_deselect.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scissors_deselect.gif; sourceTree = "<group>"; };
+		345B500E1CA058DD00B3680F /* scissors_loss.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scissors_loss.gif; sourceTree = "<group>"; };
+		345B500F1CA058DD00B3680F /* scissors_select.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scissors_select.gif; sourceTree = "<group>"; };
+		345B50101CA058DD00B3680F /* scissors_tie.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scissors_tie.gif; sourceTree = "<group>"; };
+		345B50111CA058DD00B3680F /* scissors_win.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = scissors_win.gif; sourceTree = "<group>"; };
+		345B50211CA08A5B00B3680F /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
+		345B50221CA08A5B00B3680F /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
+		345B50231CA08A5B00B3680F /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
+		345B50241CA08A5B00B3680F /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
 		34BC66461C9AF85C0010EF75 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		82D0C36D87D37F75DDEC6371 /* Pods-Rock Paper Scissors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rock Paper Scissors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rock Paper Scissors/Pods-Rock Paper Scissors.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B50011CA0534F00B3680F /* QuartzCore.framework in Frameworks */,
 				A090442F0A57F4FF2BB8662E /* libPods-Rock Paper Scissors.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +165,8 @@
 				340524411C99BF91007ADC08 /* GameChooserView.xib */,
 				3405244B1C99F45C007ADC08 /* MenuTableViewCell.swift */,
 				3405244D1C99F4FC007ADC08 /* MenuTableViewCell.xib */,
+				345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */,
+				345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -163,6 +209,7 @@
 				340C951C1C99AE78006BB5CC /* AppDelegate.swift */,
 				3405243B1C99B7A0007ADC08 /* Controllers */,
 				3405243E1C99B7F1007ADC08 /* Views */,
+				345B4FF81CA0518800B3680F /* Resources */,
 				340C95201C99AE78006BB5CC /* Main.storyboard */,
 				340C95231C99AE78006BB5CC /* Assets.xcassets */,
 				340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */,
@@ -189,6 +236,41 @@
 			path = "Rock Paper ScissorsUITests";
 			sourceTree = "<group>";
 		};
+		345B4FF81CA0518800B3680F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				345B50021CA0584900B3680F /* Gifs */,
+				345B50211CA08A5B00B3680F /* FLAnimatedImage.h */,
+				345B50221CA08A5B00B3680F /* FLAnimatedImage.m */,
+				345B50231CA08A5B00B3680F /* FLAnimatedImageView.h */,
+				345B50241CA08A5B00B3680F /* FLAnimatedImageView.m */,
+				345B4FF91CA0521F00B3680F /* Rock Paper Scissors-Bridging-Header.h */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		345B50021CA0584900B3680F /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				345B50031CA058DD00B3680F /* paper_deselect.gif */,
+				345B50041CA058DD00B3680F /* paper_loss.gif */,
+				345B50051CA058DD00B3680F /* paper_select.gif */,
+				345B50061CA058DD00B3680F /* paper_tie.gif */,
+				345B50071CA058DD00B3680F /* paper_win.gif */,
+				345B50081CA058DD00B3680F /* rock_deselect.gif */,
+				345B50091CA058DD00B3680F /* rock_loss.gif */,
+				345B500A1CA058DD00B3680F /* rock_select.gif */,
+				345B500B1CA058DD00B3680F /* rock_tie.gif */,
+				345B500C1CA058DD00B3680F /* rock_win.gif */,
+				345B500D1CA058DD00B3680F /* scissors_deselect.gif */,
+				345B500E1CA058DD00B3680F /* scissors_loss.gif */,
+				345B500F1CA058DD00B3680F /* scissors_select.gif */,
+				345B50101CA058DD00B3680F /* scissors_tie.gif */,
+				345B50111CA058DD00B3680F /* scissors_win.gif */,
+			);
+			name = Gifs;
+			sourceTree = "<group>";
+		};
 		78CD227B4DA6BBE7F0AA6B1A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +283,7 @@
 		C482A17018B3C2D5D5593F7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				345B50001CA0534F00B3680F /* QuartzCore.framework */,
 				27449F21A46880200B6D3450 /* libPods-Rock Paper Scissors.a */,
 			);
 			name = Frameworks;
@@ -313,10 +396,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B50151CA058DD00B3680F /* paper_tie.gif in Resources */,
 				340524421C99BF91007ADC08 /* GameChooserView.xib in Resources */,
+				345B501E1CA058DD00B3680F /* scissors_select.gif in Resources */,
 				340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */,
+				345B50161CA058DD00B3680F /* paper_win.gif in Resources */,
+				345B50131CA058DD00B3680F /* paper_loss.gif in Resources */,
+				345B501A1CA058DD00B3680F /* rock_tie.gif in Resources */,
+				345B50191CA058DD00B3680F /* rock_select.gif in Resources */,
 				340C95241C99AE78006BB5CC /* Assets.xcassets in Resources */,
 				3405244E1C99F4FC007ADC08 /* MenuTableViewCell.xib in Resources */,
+				345B50121CA058DD00B3680F /* paper_deselect.gif in Resources */,
+				345B50171CA058DD00B3680F /* rock_deselect.gif in Resources */,
+				345B4FF71CA04DA300B3680F /* CharacterChooserView.xib in Resources */,
+				345B501C1CA058DD00B3680F /* scissors_deselect.gif in Resources */,
+				345B50201CA058DD00B3680F /* scissors_win.gif in Resources */,
+				345B501B1CA058DD00B3680F /* rock_win.gif in Resources */,
+				345B501D1CA058DD00B3680F /* scissors_loss.gif in Resources */,
+				345B50181CA058DD00B3680F /* rock_loss.gif in Resources */,
+				345B50141CA058DD00B3680F /* paper_select.gif in Resources */,
+				345B501F1CA058DD00B3680F /* scissors_tie.gif in Resources */,
 				340C95221C99AE78006BB5CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +496,10 @@
 				3405244A1C99F203007ADC08 /* MenuViewController.swift in Sources */,
 				3405244C1C99F45C007ADC08 /* MenuTableViewCell.swift in Sources */,
 				34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */,
+				345B50261CA08A5B00B3680F /* FLAnimatedImageView.m in Sources */,
 				340C951D1C99AE78006BB5CC /* AppDelegate.swift in Sources */,
+				345B4FF51CA04D3100B3680F /* CharacterChooserView.swift in Sources */,
+				345B50251CA08A5B00B3680F /* FLAnimatedImage.m in Sources */,
 				3406CD9B1C9C95990012A253 /* GameInfoViewController.swift in Sources */,
 				340524481C99ED4F007ADC08 /* RPSMainViewController.swift in Sources */,
 				3405243D1C99B7E1007ADC08 /* NewGameViewController.swift in Sources */,
@@ -541,10 +643,13 @@
 			baseConfigurationReference = 82D0C36D87D37F75DDEC6371 /* Pods-Rock Paper Scissors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Rock Paper Scissors/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.touchlab.rps.Rock-Paper-Scissors";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rock Paper Scissors/Rock Paper Scissors-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -553,10 +658,12 @@
 			baseConfigurationReference = 12BC0CCADD341AA3AEB7158A /* Pods-Rock Paper Scissors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Rock Paper Scissors/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.touchlab.rps.Rock-Paper-Scissors";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rock Paper Scissors/Rock Paper Scissors-Bridging-Header.h";
 			};
 			name = Release;
 		};

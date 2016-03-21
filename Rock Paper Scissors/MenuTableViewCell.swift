@@ -29,5 +29,4 @@ class MenuTableViewCell: UITableViewCell {
             titleLabel.textColor = UIColor.darkGrayColor()
         }
     }
-
 }

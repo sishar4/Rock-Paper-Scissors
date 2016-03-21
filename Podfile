@@ -4,7 +4,7 @@
 # use_frameworks!
 
 target 'Rock Paper Scissors' do
-	pod 'FLAnimatedImage', '~> 1.0'
+	pod 'iCarousel', '~> 1.8'
 end
 
 target 'Rock Paper ScissorsTests' do

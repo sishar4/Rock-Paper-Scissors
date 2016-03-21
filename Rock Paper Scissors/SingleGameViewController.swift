@@ -15,6 +15,13 @@ class SingleGameViewController: UIViewController {
     var infoView : GameInfoViewController?
     let top : CGFloat = UIScreen.mainScreen().bounds.origin.y
     
+    @IBOutlet weak var userAvatar : UIImageView!
+    @IBOutlet weak var robotAvatar : UIImageView!
+    @IBOutlet weak var userScoreLabel : UILabel!
+    @IBOutlet weak var robotScoreLabel : UILabel!
+    @IBOutlet weak var currentRoundImageView : UIImageView!
+    @IBOutlet weak var currentGameView : UIView!
+    
     @IBOutlet weak var homeButton : UIBarButtonItem!
     @IBOutlet weak var infoButton : UIBarButtonItem!
     
@@ -49,6 +56,10 @@ class SingleGameViewController: UIViewController {
         readyView = storyBoard.instantiateViewControllerWithIdentifier("GameReadyViewControllerSingle") as? SingleGameReadyViewController
         readyView!.view.frame = CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height)
         view.addSubview(readyView!.view)
+        
+        let characterChooserView: CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
+        characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
+        currentGameView!.addSubview(characterChooserView)
         
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {

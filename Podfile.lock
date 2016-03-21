@@ -1,10 +1,10 @@
 PODS:
-  - FLAnimatedImage (1.0.12)
+  - iCarousel (1.8.2)
 
 DEPENDENCIES:
-  - FLAnimatedImage (~> 1.0)
+  - iCarousel (~> 1.8)
 
 SPEC CHECKSUMS:
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
 
 COCOAPODS: 0.39.0

@@ -219,7 +219,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         view.addSubview(overlayView!)
     }
     
-    //MARK: Menu View Controller Delegate
+    //MARK: - Menu View Controller Delegate
     func didSelectMenuItemWithTitle(title: String) {
         if title == pageTitle {
             hideMenu()

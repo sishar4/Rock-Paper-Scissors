@@ -32,5 +32,4 @@ class GameChooserView: UIView {
         playerImgButton.layer.cornerRadius = 90.0
         translatesAutoresizingMaskIntoConstraints = true
     }
-
 }

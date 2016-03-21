@@ -56,7 +56,7 @@ class NewGameViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: pageWidth * 2, height: 1.0)
     }
     
-    // MARK: Scroll View Delegate
+    // MARK: - Scroll View Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
