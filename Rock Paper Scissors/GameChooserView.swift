@@ -20,7 +20,7 @@ class GameChooserView: UIView {
     
     func loadSinglePlayerView() {
         gameTypeLabel.text = "Single Player"
-        gameDetailLabel.text = "Take on the iOS robot!"
+        gameDetailLabel.text = "Take on the Android robot!"
     }
     
     func loadMultiPlayerView() {

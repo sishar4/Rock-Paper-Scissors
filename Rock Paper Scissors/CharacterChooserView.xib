@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Bebas Neue.ttf">
+            <string>BebasNeue</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -11,17 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE YOUR CHARACTER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-bA-KDh">
-                    <rect key="frame" x="60" y="8" width="200" height="60"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="N0r-ry-tuo"/>
-                        <constraint firstAttribute="height" constant="60" id="UIR-Sn-gtr"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QT-3v-rLb">
                     <rect key="frame" x="91" y="457" width="46" height="35"/>
                     <constraints>
@@ -66,8 +60,19 @@
                         <action selector="scissorsClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jw4-mr-yw1"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE YOUR CHARACTER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-bA-KDh">
+                    <rect key="frame" x="90" y="8" width="140" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="N0r-ry-tuo"/>
+                        <constraint firstAttribute="height" constant="60" id="UIR-Sn-gtr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="24"/>
+                    <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9QT-3v-rLb" secondAttribute="bottom" constant="8" id="1Un-c8-beq"/>
                 <constraint firstItem="zYb-rF-51E" firstAttribute="leading" secondItem="fbE-1Y-Kuf" secondAttribute="trailing" id="2t2-Pf-1kR"/>

@@ -23,6 +23,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Handle sign in functionality
     }
     
+    func signInUser() {
+        
+    }
+    
     // MARK: - Table View Delegate
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -37,13 +41,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.titleLabel.text = cellItemsArray[indexPath.row] as? String
         
+        if (cell.titleLabel.text == "Invitations") {
+            //Check if signed in or not
+            //If not
+            cell.disableCell()
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //Pass title of selected cell to RPSMainViewController to load the correct view
+        
         let selection = cellItemsArray.objectAtIndex(indexPath.row) as! String
-        delegate?.didSelectMenuItemWithTitle(selection)
+        if selection != "Sign In" {
+            delegate?.didSelectMenuItemWithTitle(selection)
+        } else {
+            signInUser()
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

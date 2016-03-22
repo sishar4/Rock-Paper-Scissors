@@ -45,6 +45,7 @@
 		345B50251CA08A5B00B3680F /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B50221CA08A5B00B3680F /* FLAnimatedImage.m */; };
 		345B50261CA08A5B00B3680F /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B50241CA08A5B00B3680F /* FLAnimatedImageView.m */; };
 		34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC66461C9AF85C0010EF75 /* AboutViewController.swift */; };
+		34C905CA1CA19E3A0038CB24 /* Bebas Neue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34C905C91CA19E3A0038CB24 /* Bebas Neue.ttf */; };
 		A090442F0A57F4FF2BB8662E /* libPods-Rock Paper Scissors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27449F21A46880200B6D3450 /* libPods-Rock Paper Scissors.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		345B50231CA08A5B00B3680F /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
 		345B50241CA08A5B00B3680F /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
 		34BC66461C9AF85C0010EF75 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		34C905C91CA19E3A0038CB24 /* Bebas Neue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bebas Neue.ttf"; sourceTree = "<group>"; };
 		82D0C36D87D37F75DDEC6371 /* Pods-Rock Paper Scissors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rock Paper Scissors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rock Paper Scissors/Pods-Rock Paper Scissors.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 		345B4FF81CA0518800B3680F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34C905C81CA19E120038CB24 /* Fonts */,
 				345B50021CA0584900B3680F /* Gifs */,
 				345B50211CA08A5B00B3680F /* FLAnimatedImage.h */,
 				345B50221CA08A5B00B3680F /* FLAnimatedImage.m */,
@@ -269,6 +272,14 @@
 				345B50111CA058DD00B3680F /* scissors_win.gif */,
 			);
 			name = Gifs;
+			sourceTree = "<group>";
+		};
+		34C905C81CA19E120038CB24 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				34C905C91CA19E3A0038CB24 /* Bebas Neue.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		78CD227B4DA6BBE7F0AA6B1A /* Pods */ = {
@@ -400,6 +411,7 @@
 				340524421C99BF91007ADC08 /* GameChooserView.xib in Resources */,
 				345B501E1CA058DD00B3680F /* scissors_select.gif in Resources */,
 				340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */,
+				34C905CA1CA19E3A0038CB24 /* Bebas Neue.ttf in Resources */,
 				345B50161CA058DD00B3680F /* paper_win.gif in Resources */,
 				345B50131CA058DD00B3680F /* paper_loss.gif in Resources */,
 				345B501A1CA058DD00B3680F /* rock_tie.gif in Resources */,
