@@ -24,6 +24,8 @@
 		340C95271C99AE78006BB5CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C95251C99AE78006BB5CC /* LaunchScreen.storyboard */; };
 		340C95321C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C95311C99AE78006BB5CC /* Rock_Paper_ScissorsTests.swift */; };
 		340C953D1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */; };
+		341C98781CA32BB4003BA838 /* MatchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C98771CA32BB4003BA838 /* MatchResultView.swift */; };
+		341C987A1CA32C46003BA838 /* MatchResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 341C98791CA32C46003BA838 /* MatchResultView.xib */; };
 		345B4FF51CA04D3100B3680F /* CharacterChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */; };
 		345B4FF71CA04DA300B3680F /* CharacterChooserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */; };
 		345B50011CA0534F00B3680F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345B50001CA0534F00B3680F /* QuartzCore.framework */; };
@@ -92,6 +94,8 @@
 		340C95381C99AE78006BB5CC /* Rock Paper ScissorsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock Paper ScissorsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C953C1C99AE78006BB5CC /* Rock_Paper_ScissorsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock_Paper_ScissorsUITests.swift; sourceTree = "<group>"; };
 		340C953E1C99AE78006BB5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		341C98771CA32BB4003BA838 /* MatchResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchResultView.swift; sourceTree = "<group>"; };
+		341C98791CA32C46003BA838 /* MatchResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchResultView.xib; sourceTree = "<group>"; };
 		345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterChooserView.swift; sourceTree = "<group>"; };
 		345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterChooserView.xib; sourceTree = "<group>"; };
 		345B4FF91CA0521F00B3680F /* Rock Paper Scissors-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rock Paper Scissors-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				3405244D1C99F4FC007ADC08 /* MenuTableViewCell.xib */,
 				345B4FF41CA04D3100B3680F /* CharacterChooserView.swift */,
 				345B4FF61CA04DA300B3680F /* CharacterChooserView.xib */,
+				341C98771CA32BB4003BA838 /* MatchResultView.swift */,
+				341C98791CA32C46003BA838 /* MatchResultView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				345B50171CA058DD00B3680F /* rock_deselect.gif in Resources */,
 				345B4FF71CA04DA300B3680F /* CharacterChooserView.xib in Resources */,
 				345B501C1CA058DD00B3680F /* scissors_deselect.gif in Resources */,
+				341C987A1CA32C46003BA838 /* MatchResultView.xib in Resources */,
 				345B50201CA058DD00B3680F /* scissors_win.gif in Resources */,
 				345B501B1CA058DD00B3680F /* rock_win.gif in Resources */,
 				345B501D1CA058DD00B3680F /* scissors_loss.gif in Resources */,
@@ -508,6 +515,7 @@
 				3405244A1C99F203007ADC08 /* MenuViewController.swift in Sources */,
 				3405244C1C99F45C007ADC08 /* MenuTableViewCell.swift in Sources */,
 				34BC66471C9AF85C0010EF75 /* AboutViewController.swift in Sources */,
+				341C98781CA32BB4003BA838 /* MatchResultView.swift in Sources */,
 				345B50261CA08A5B00B3680F /* FLAnimatedImageView.m in Sources */,
 				340C951D1C99AE78006BB5CC /* AppDelegate.swift in Sources */,
 				345B4FF51CA04D3100B3680F /* CharacterChooserView.swift in Sources */,

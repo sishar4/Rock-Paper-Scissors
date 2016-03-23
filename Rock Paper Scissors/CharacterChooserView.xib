@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8V-kM-5Md" customClass="iCarousel">
-                    <rect key="frame" x="0.0" y="76" width="320" height="373"/>
+                    <rect key="frame" x="0.0" y="86" width="320" height="363"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="kys-qY-m07"/>
@@ -71,13 +71,23 @@
                     <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rn3-5h-pDc">
+                    <rect key="frame" x="85" y="68" width="150" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="7BL-BU-Eg2"/>
+                        <constraint firstAttribute="height" constant="2" id="Hqi-ZN-t61"/>
+                    </constraints>
+                    <color key="progressTintColor" red="0.47058823529999999" green="0.75686274509999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9QT-3v-rLb" secondAttribute="bottom" constant="8" id="1Un-c8-beq"/>
                 <constraint firstItem="zYb-rF-51E" firstAttribute="leading" secondItem="fbE-1Y-Kuf" secondAttribute="trailing" id="2t2-Pf-1kR"/>
                 <constraint firstItem="P8V-kM-5Md" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3rS-Gu-Yuh"/>
+                <constraint firstItem="Rn3-5h-pDc" firstAttribute="top" secondItem="Oab-bA-KDh" secondAttribute="bottom" id="4w0-UK-WLY"/>
                 <constraint firstItem="Oab-bA-KDh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6Al-6G-URD"/>
+                <constraint firstItem="P8V-kM-5Md" firstAttribute="top" secondItem="Rn3-5h-pDc" secondAttribute="bottom" constant="16" id="BY2-aL-1KB"/>
                 <constraint firstAttribute="bottom" secondItem="fbE-1Y-Kuf" secondAttribute="bottom" constant="8" id="GUk-74-mU8"/>
                 <constraint firstAttribute="trailing" secondItem="P8V-kM-5Md" secondAttribute="trailing" id="LSq-dB-UHO"/>
                 <constraint firstItem="fbE-1Y-Kuf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qz1-tl-WZ8"/>
@@ -86,11 +96,19 @@
                 <constraint firstItem="fbE-1Y-Kuf" firstAttribute="top" secondItem="P8V-kM-5Md" secondAttribute="bottom" constant="8" id="ei9-gI-ezt"/>
                 <constraint firstItem="P8V-kM-5Md" firstAttribute="top" secondItem="Oab-bA-KDh" secondAttribute="bottom" constant="8" id="k9p-fg-egE"/>
                 <constraint firstItem="Oab-bA-KDh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rIw-yM-Itr"/>
+                <constraint firstItem="Rn3-5h-pDc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v0o-0u-Wxz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="k9p-fg-egE"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="carouselView" destination="P8V-kM-5Md" id="jPJ-sr-itq"/>
+                <outlet property="headerLabel" destination="Oab-bA-KDh" id="Ko8-tl-gg5"/>
                 <outlet property="paperButton" destination="fbE-1Y-Kuf" id="rcF-Ko-koQ"/>
+                <outlet property="progressBar" destination="Rn3-5h-pDc" id="clL-rk-cIu"/>
                 <outlet property="rockButton" destination="9QT-3v-rLb" id="5CL-HH-PoU"/>
                 <outlet property="scissorsButton" destination="zYb-rF-51E" id="CM4-qS-4gW"/>
             </connections>

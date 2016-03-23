@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SingleGameViewController: UIViewController {
+class SingleGameViewController: UIViewController, CharacterChooserDelegate, MatchResultDelegate {
 
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     var readyView : SingleGameReadyViewController?
     var infoView : GameInfoViewController?
     let top : CGFloat = UIScreen.mainScreen().bounds.origin.y
+    
     
     @IBOutlet weak var userAvatar : UIImageView!
     @IBOutlet weak var robotAvatar : UIImageView!
@@ -36,8 +37,11 @@ class SingleGameViewController: UIViewController {
     }
     
     @IBAction func infoButtonClicked(sender: UIBarButtonItem) {
-        infoView = storyBoard.instantiateViewControllerWithIdentifier("GameInfoViewController") as? GameInfoViewController
-        infoView!.view.frame = CGRectMake(0.0, top, self.view.frame.width, self.view.frame.height)
+        if infoView == nil {
+            infoView = storyBoard.instantiateViewControllerWithIdentifier("GameInfoViewController") as? GameInfoViewController
+            infoView!.view.frame = CGRectMake(0.0, top, self.view.frame.width, self.view.frame.height)
+        }
+        
         let win:UIWindow = UIApplication.sharedApplication().delegate!.window!!
         win.addSubview(infoView!.view)
         win.bringSubviewToFront(infoView!.view)
@@ -57,9 +61,6 @@ class SingleGameViewController: UIViewController {
         readyView!.view.frame = CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height)
         view.addSubview(readyView!.view)
         
-        let characterChooserView: CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
-        characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
-        currentGameView!.addSubview(characterChooserView)
         
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -67,9 +68,33 @@ class SingleGameViewController: UIViewController {
                 self.infoView?.exitInfoView()
             }
             self.readyView!.view.removeFromSuperview()
+            self.loadAndShowCharacterView()
         }
     }
 
+    
+    func loadAndShowCharacterView() {
+        let characterChooserView : CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
+        characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
+        characterChooserView.delegate = self
+        currentGameView!.addSubview(characterChooserView)
+    }
+    
+    // MARK: - Match Result Delegate
+    func playAgain() {
+        loadAndShowCharacterView()
+    }
+    
+    // MARK: - Match Result Delegate
+    func didPlayWithCharacter(characterName: String) {
+        print(characterName)
+        
+        let matchResultView : MatchResultView = MatchResultView.instanceFromNib() as! MatchResultView
+        matchResultView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
+        matchResultView.delegate = self
+        currentGameView!.addSubview(matchResultView)
+        
+    }
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
