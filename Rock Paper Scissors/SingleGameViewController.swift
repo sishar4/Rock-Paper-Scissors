@@ -14,7 +14,8 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
     var readyView : SingleGameReadyViewController?
     var infoView : GameInfoViewController?
     let top : CGFloat = UIScreen.mainScreen().bounds.origin.y
-    
+    //for showing correct character centered in carousel in chooser view
+    var characterIndex : Int = 1
     
     @IBOutlet weak var userAvatar : UIImageView!
     @IBOutlet weak var robotAvatar : UIImageView!
@@ -59,6 +60,7 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
         let characterChooserView : CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
         characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
         characterChooserView.delegate = self
+        characterChooserView.passedIndex = characterIndex
         currentGameView!.addSubview(characterChooserView)
     }
     
@@ -69,14 +71,14 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
     
     
     // MARK: - Character Chooser Delegate
-    func didPlayWithCharacter(characterName: String) {
+    func didPlayWithCharacter(characterName: String, atIndex: Int) {
         print(characterName)
+        characterIndex = atIndex
         
         let matchResultView : MatchResultView = MatchResultView.instanceFromNib() as! MatchResultView
         matchResultView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
         matchResultView.delegate = self
         currentGameView!.addSubview(matchResultView)
-        
     }
     
     

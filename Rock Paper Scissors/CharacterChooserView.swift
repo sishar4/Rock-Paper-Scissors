@@ -9,7 +9,13 @@
 import UIKit
 
 protocol CharacterChooserDelegate: class {
-    func didPlayWithCharacter(characterName: String)
+    func didPlayWithCharacter(characterName: String, atIndex: Int)
+}
+
+enum Character: Int {
+    case Rock = 0
+    case Paper = 1
+    case Scissors = 2
 }
 
 class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
@@ -23,6 +29,11 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     var numShakes : NSInteger = 0
     var timer : NSTimer?
     var time : Float = 0.0
+    var passedIndex : Int! {
+        didSet {
+            carouselView.scrollToItemAtIndex(passedIndex, animated: false)
+        }
+    }
     
     @IBOutlet weak var headerLabel : UILabel!
     @IBOutlet weak var progressBar : UIProgressView!
@@ -170,7 +181,6 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     
     func progressBarFinished() {
         timer!.invalidate()
-        timer = nil
         progressBar.hidden = true
         if (numShakes == 4) {
             headerLabel.text = "SHOOT!"
@@ -183,13 +193,17 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     
     func playGame() {
         removeFromSuperview()
-        delegate?.didPlayWithCharacter("Paper")
+        
+        let idx = carouselView.currentItemIndex
+        let chosenCharacter = String(Character.init(rawValue: idx)!)
+        delegate?.didPlayWithCharacter(chosenCharacter, atIndex: idx)
     }
     
     //Allows view to handle Shake events
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
+    
     
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "CharacterChooserView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
@@ -221,7 +235,6 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
         carouselView.pagingEnabled = true
         carouselView.decelerationRate = 0.0
         carouselView.reloadData()
-        carouselView.scrollToItemAtIndex(1, animated: false)
         
         becomeFirstResponder()
     }
