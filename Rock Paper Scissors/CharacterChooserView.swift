@@ -153,6 +153,9 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
             progressBar.setProgress(1.0, animated: false)
             
             time = 0.0
+            if let myTimer = timer {
+                myTimer.invalidate()
+            }
             timer = NSTimer.scheduledTimerWithTimeInterval(0.001, target: self, selector:Selector("setProgress"), userInfo: nil, repeats: true)
         }
     }
@@ -167,6 +170,7 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     
     func progressBarFinished() {
         timer!.invalidate()
+        timer = nil
         progressBar.hidden = true
         if (numShakes == 4) {
             headerLabel.text = "SHOOT!"

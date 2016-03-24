@@ -28,7 +28,6 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
             let win:UIWindow = UIApplication.sharedApplication().delegate!.window!!
             win.addSubview(menuViewController!.view)
             win.bringSubviewToFront(menuViewController!.view)
-//            self.addChildViewController(menuViewController!)
         }
     }
     
@@ -52,76 +51,62 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         }
     }
     
-    @IBAction func handleOpenPan(recognizer: UIScreenEdgePanGestureRecognizer) {
-        let velocity = recognizer.velocityInView(self.view)
-        if (velocity.x > 1500.0) {
-            showMenu()
-            return
-        }
-        
-        let translation = recognizer.translationInView(self.view)
-        
+    
+    //MARK: - Sliding Menu
+    func handleOpeningWithRecognizer(recognizer: UIPanGestureRecognizer, translation: CGPoint) {
         switch recognizer.state {
-            case .Began:
-                print("began")
-                addOverlay()
-                
-            case .Changed:
-                if let view = menuViewController!.view {
-                    if view.center.x < ((self.view.frame.width - 100.0)/2) - 0.1 {
-                        view.center = CGPoint(x:view.center.x + translation.x,
-                            y:UIScreen.mainScreen().bounds.height/2)
-                        overlayView!.center = CGPoint(x: overlayView!.center.x + translation.x, y: UIScreen.mainScreen().bounds.height/2)
-                        
-                        let tran = Float(translation.x)
-                        translationIncrement += tran
-                        print(translationIncrement)
-                        
-                        let viewSection = Float(view.frame.size.width)
-                        if translationIncrement > viewSection/12.0 {
-                            overlayView!.alpha += 0.0555
-                            translationIncrement = 0.0
-                        }
-                    }
-                }
-                
-                recognizer.setTranslation(CGPointZero, inView: self.view)
+        case .Began:
+            print("began")
+            addOverlay()
             
-            case .Ended:
-                print("ended")
-                if let view = menuViewController!.view {
-                    translationIncrement = 0.0
+        case .Changed:
+            if let view = menuViewController!.view {
+                if view.center.x < ((self.view.frame.width - 100.0)/2) - 0.1 {
+                    view.center = CGPoint(x:view.center.x + translation.x,
+                        y:UIScreen.mainScreen().bounds.height/2)
+                    overlayView!.center = CGPoint(x: overlayView!.center.x + translation.x, y: UIScreen.mainScreen().bounds.height/2)
                     
-                    if view.center.x <= -(view.frame.size.width/2) {
-                        overlayView!.alpha = 0.0
-                        overlayView!.removeFromSuperview()
-                    } else if view.center.x == view.frame.size.width/2 {
-                        //do nothing
-                    } else if view.center.x > self.view.frame.origin.x {
-                        showMenu()
-                    } else if (self.view.frame.origin.x - view.center.x)  < view.frame.size.width/2 {
-                        isMenuShowing = true
-                        hideMenu()
+                    let tran = Float(translation.x)
+                    translationIncrement += tran
+                    print(translationIncrement)
+                    
+                    let viewSection = Float(view.frame.size.width)
+                    if translationIncrement > viewSection/12.0 {
+                        overlayView!.alpha += 0.0555
+                        translationIncrement = 0.0
                     }
                 }
-            case .Possible:
-                print("possible")
-            case .Cancelled:
-                print("cancelled")
-            case .Failed:
-                print("failed")
+            }
+            
+            recognizer.setTranslation(CGPointZero, inView: self.view)
+            
+        case .Ended:
+            print("ended")
+            if let view = menuViewController!.view {
+                translationIncrement = 0.0
+                
+                if view.center.x <= -(view.frame.size.width/2) {
+                    overlayView!.alpha = 0.0
+                    overlayView!.removeFromSuperview()
+                } else if view.center.x == view.frame.size.width/2 {
+                    //do nothing
+                } else if view.center.x > self.view.frame.origin.x {
+                    showMenu()
+                } else if (self.view.frame.origin.x - view.center.x)  < view.frame.size.width/2 {
+                    isMenuShowing = true
+                    hideMenu()
+                }
+            }
+        case .Possible:
+            print("possible")
+        case .Cancelled:
+            print("cancelled")
+        case .Failed:
+            print("failed")
         }
     }
     
-    func handleClosePan(recognizer: UIPanGestureRecognizer) {
-        let velocity = recognizer.velocityInView(self.view)
-        if (velocity.x < -1500.0) {
-            hideMenu()
-            return
-        }
-        print(UIScreen.mainScreen().bounds.width/2 - 50.0)
-        let translation = recognizer.translationInView(self.view)
-        
+    func handleClosingWithRecognizer(recognizer: UIPanGestureRecognizer, translation: CGPoint) {
         switch recognizer.state {
         case .Began:
             print("began")
@@ -163,6 +148,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
                     isMenuShowing = false
                     showMenu()
                 } else if (self.view.frame.origin.x - view.center.x) < view.frame.size.width/2 {
+                    isMenuShowing = true
                     hideMenu()
                 }
             }
@@ -172,6 +158,34 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
             print("cancelled")
         case .Failed:
             print("failed")
+        }
+    }
+    
+    @IBAction func handleOpenPan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        
+        let velocity = recognizer.velocityInView(self.view)
+        if (velocity.x > 1500.0) {
+            showMenu()
+            return
+        } else if (velocity.x < 0) {
+            handleClosingWithRecognizer(recognizer, translation: translation)
+        } else {
+            handleOpeningWithRecognizer(recognizer, translation: translation)
+        }
+    }
+    
+    func handleClosePan(recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        
+        let velocity = recognizer.velocityInView(self.view)
+        if (velocity.x < -1500.0) {
+            hideMenu()
+            return
+        } else if (velocity.x > 0) {
+            handleOpeningWithRecognizer(recognizer, translation: translation)
+        } else {
+            handleClosingWithRecognizer(recognizer, translation: translation)
         }
     }
     
@@ -219,6 +233,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         view.addSubview(overlayView!)
     }
     
+    
     //MARK: - Menu View Controller Delegate
     func didSelectMenuItemWithTitle(title: String) {
         if title == pageTitle {
@@ -263,6 +278,7 @@ class RPSMainViewController: UIViewController, MenuViewControllerDelegate {
         //Post Notification to NewGameViewController to disable scrollView panGestureRecognizer to allow edgePanRecognizer to work
         NSNotificationCenter.defaultCenter().postNotificationName("NewGameScreenVisibleNotification", object: edgePanRecognizer)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

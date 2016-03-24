@@ -36,6 +36,13 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
         presentViewController(exitAlert, animated: true, completion: nil)
     }
     
+    func exitGame() {
+        //Exit Single Player Game
+        let mainNav = storyBoard.instantiateViewControllerWithIdentifier("MainNavController")
+        let appDelegate: UIApplicationDelegate = UIApplication.sharedApplication().delegate!
+        appDelegate.window!!.rootViewController = mainNav
+    }
+    
     @IBAction func infoButtonClicked(sender: UIBarButtonItem) {
         if infoView == nil {
             infoView = storyBoard.instantiateViewControllerWithIdentifier("GameInfoViewController") as? GameInfoViewController
@@ -47,12 +54,31 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
         win.bringSubviewToFront(infoView!.view)
     }
     
-    func exitGame() {
-        //Exit Single Player Game
-        let mainNav = storyBoard.instantiateViewControllerWithIdentifier("MainNavController")
-        let appDelegate: UIApplicationDelegate = UIApplication.sharedApplication().delegate!
-        appDelegate.window!!.rootViewController = mainNav
+    
+    func loadAndShowCharacterView() {
+        let characterChooserView : CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
+        characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
+        characterChooserView.delegate = self
+        currentGameView!.addSubview(characterChooserView)
     }
+    
+    // MARK: - Match Result Delegate
+    func playAgain() {
+        loadAndShowCharacterView()
+    }
+    
+    
+    // MARK: - Character Chooser Delegate
+    func didPlayWithCharacter(characterName: String) {
+        print(characterName)
+        
+        let matchResultView : MatchResultView = MatchResultView.instanceFromNib() as! MatchResultView
+        matchResultView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
+        matchResultView.delegate = self
+        currentGameView!.addSubview(matchResultView)
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,28 +99,6 @@ class SingleGameViewController: UIViewController, CharacterChooserDelegate, Matc
     }
 
     
-    func loadAndShowCharacterView() {
-        let characterChooserView : CharacterChooserView = CharacterChooserView.instanceFromNib() as! CharacterChooserView
-        characterChooserView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
-        characterChooserView.delegate = self
-        currentGameView!.addSubview(characterChooserView)
-    }
-    
-    // MARK: - Match Result Delegate
-    func playAgain() {
-        loadAndShowCharacterView()
-    }
-    
-    // MARK: - Match Result Delegate
-    func didPlayWithCharacter(characterName: String) {
-        print(characterName)
-        
-        let matchResultView : MatchResultView = MatchResultView.instanceFromNib() as! MatchResultView
-        matchResultView.frame = CGRectMake(0.0, 0.0, currentGameView!.frame.width, currentGameView!.frame.height)
-        matchResultView.delegate = self
-        currentGameView!.addSubview(matchResultView)
-        
-    }
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
