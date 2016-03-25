@@ -31,6 +31,7 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     var time : Float = 0.0
     var passedIndex : Int! {
         didSet {
+            loadImagesForIndex(passedIndex)
             carouselView.scrollToItemAtIndex(passedIndex, animated: false)
         }
     }
@@ -149,8 +150,14 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
             case 4:
                 progressBarFinished()
                 
+                //Remove unselected characters from view
+                for (var i = 0; i <= 2; i++) {
+                    if i != carouselView.currentItemIndex {
+                        let imgView : FLAnimatedImageView = carousel(carouselView, viewForItemAtIndex: i, reusingView: nil) as! FLAnimatedImageView
+                        imgView.removeFromSuperview()
+                    }
+                }
                 //Show Game Result View
-                carouselView.removeFromSuperview()
                 performSelector("playGame", withObject: nil, afterDelay: 1.0)
                 return
             default:
@@ -205,6 +212,25 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
     }
     
     
+    func loadImagesForIndex(index: Int) {
+        switch (index) {
+        case 0:
+            rockImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("rock_select", ofType: "gif")!))
+            paperImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("paper_deselect", ofType: "gif")!))
+            scissorsImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("scissors_deselect", ofType: "gif")!))
+        case 1:
+            paperImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("paper_select", ofType: "gif")!))
+            rockImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("rock_deselect", ofType: "gif")!))
+            scissorsImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("scissors_deselect", ofType: "gif")!))
+        case 2:
+            scissorsImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("scissors_select", ofType: "gif")!))
+            rockImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("rock_deselect", ofType: "gif")!))
+            paperImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("paper_deselect", ofType: "gif")!))
+        default:
+            return
+        }
+    }
+    
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "CharacterChooserView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
     }
@@ -215,17 +241,14 @@ class CharacterChooserView: UIView, iCarouselDelegate, iCarouselDataSource {
         progressBar.hidden = true
         
         rockImageView = FLAnimatedImageView.init(frame: CGRectMake(0.0, 0.0, 150.0, 270.0))
-        rockImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("rock_deselect", ofType: "gif")!))
         rockImageView!.contentMode = .ScaleAspectFit
 //        addGestureRecognizers(rockImageView!)
         
         paperImageView = FLAnimatedImageView.init(frame: CGRectMake(0.0, 0.0, 150.0, 270.0))
-        paperImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("paper_select", ofType: "gif")!))
         paperImageView!.contentMode = .ScaleAspectFit
 //        addGestureRecognizers(paperImageView!)
         
         scissorsImageView = FLAnimatedImageView.init(frame: CGRectMake(0.0, 0.0, 150.0, 270.0))
-        scissorsImageView!.animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("scissors_deselect", ofType: "gif")!))
         scissorsImageView!.contentMode = .ScaleAspectFit
 //        addGestureRecognizers(scissorsImageView!)
         

@@ -530,6 +530,7 @@
                                 </connections>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aHN-Yn-QCU" firstAttribute="top" secondItem="tEE-b3-fjt" secondAttribute="bottom" id="R5u-MO-FOj"/>
                             <constraint firstItem="aHN-Yn-QCU" firstAttribute="leading" secondItem="8zf-pa-aNm" secondAttribute="leading" id="dSo-UJ-Lqv"/>
